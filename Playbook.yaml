@@ -1,0 +1,20 @@
+---
+- name: Install Apache2
+  hosts: web
+  become: yes
+  tasks: 
+    - name: Install Apache2
+      apt:
+        name: apache2
+        state: present
+      when: ansible_distribution == 'Ubuntu'
+    - name: Install Apache httpd server on macOS
+      homebrew:
+        name: httpd
+        state: present 
+      when: ansible_distribution == 'Darwin'
+    - name: Install httpd on CentOS Machines
+      yum:
+        name: httpd
+        state: present
+      when: ansible_distribution == 'CentOS'
