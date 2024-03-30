@@ -1,6 +1,6 @@
 ---
 - name: Install Apache2
-  hosts: web
+  hosts: all
   become: yes
   tasks: 
     - name: Install Apache2
@@ -18,3 +18,9 @@
         name: httpd
         state: present
       when: ansible_distribution == 'CentOS'
+    - name: Start Apache service on macOS
+      service: 
+        name: httpd
+        state: started
+        enabled: true
+      when: ansible_distribution == 'Darwin'
