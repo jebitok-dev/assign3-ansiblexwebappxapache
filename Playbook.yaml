@@ -19,6 +19,12 @@
         name: httpd
         state: present
       when: ansible_distribution == 'CentOS'
+    - name: Deploy HTML file on macOS
+      copy:
+        src: /Users/jebitok/deploywithansible/index.html
+        dest: /var/www/html/index.html
+      become: yes
+      when: ansible_facts['os_family'] == "Darwin" and ansible_facts['architecture'] == "arm64"
     - name: Start Apache service on macOS
       command: sudo apachectl start
       become: yes
