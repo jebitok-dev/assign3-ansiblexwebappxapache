@@ -23,7 +23,12 @@ or
 
 ansible-playbook -i localhost, -c local Playbook.yaml --ask-become-pass
 
+// Enter Become Password: 
+
 ````
+
+![Screenshot](./Image%2030-03-2024%20at%2021.43.jpeg)
+
 
 ## Acknowledgement 
 I acknowledge [ALTSchool Africa](AltSchoolAfrica.com) for the helpful instructors and resources as well as the online resources that has helped me during the learning process and doing this task 
