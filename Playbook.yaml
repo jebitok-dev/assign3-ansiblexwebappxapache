@@ -3,21 +3,21 @@
   hosts: all
   become: yes
   tasks: 
-    - name: Install Apache2
-      apt:
-        name: apache2
-        state: present
-      when: ansible_distribution == 'Ubuntu'
+  #  - name: Install Apache2
+  #    apt:
+  #      name: apache2
+  #      state: present
+  #    when: ansible_distribution == 'Ubuntu'
     - name: Install Apache httpd server on macOS
       homebrew:
         name: httpd
         state: present 
       when: ansible_distribution == 'Darwin'
-    - name: Install httpd on CentOS Machines
-      yum:
-        name: httpd
-        state: present
-      when: ansible_distribution == 'CentOS'
+  #  - name: Install httpd on CentOS Machines
+  #    yum:
+  #      name: httpd
+  #      state: present
+  #    when: ansible_distribution == 'CentOS'
     - name: Start Apache service on macOS
       service: 
         name: httpd
